@@ -1,5 +1,4 @@
 # Decathlon
-Example of using: Spring, JSF 2
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Instructions how to enable this sample
