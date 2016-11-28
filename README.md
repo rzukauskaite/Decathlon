@@ -10,7 +10,9 @@ Instructions how to enable this sample
 ~~~~~~~~~~~
 
 1.1. Building project: download maven and place under 'C:\' directory, i.e.: apache-maven-3.0.4;
+
 1.2. Starting application: download tomcat and place under 'C:\' directory, i.e.: apache-tomcat-7.0.72;
+
 1.3. Coding: download java and eclipse, i.e.: jdk1.7, Mars.2;
 
 
