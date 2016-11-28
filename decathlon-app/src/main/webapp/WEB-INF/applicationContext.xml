@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                        http://www.springframework.org/schema/util
+                        http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <context:component-scan base-package="com.decathlon.app" />
+
+    <bean id="bean" class="com.decathlon.app.Bean" init-method="init">
+        <property name="readerService" ref="readerService" />
+        <property name="competitionEvaluationService" ref="competitionEvaluationService" />
+        <property name="competitionResultsSorter" ref="competitionResultsSorter" />
+    </bean>
+
+    <bean id="readerService" class="com.decathlon.app.services.impl.ReaderServiceImpl">
+        <property name="path" value="D:/workspace [GitHub]/Decathlon/decathlon-app/src/test/resources" />
+    </bean>
+
+    <bean id="scoresCounterService" class="com.decathlon.app.services.impl.ScoresCounterServiceImpl" />
+
+    <bean id="competitionEvaluationService" class="com.decathlon.app.services.impl.CompetitionEvaluationServiceImpl">
+        <property name="scoresCounterService" ref="scoresCounterService" />
+    </bean>
+
+    <bean id="competitionResultsSorter" class="com.decathlon.app.utils.CompetitionResultsSorter" />
+
+</beans>

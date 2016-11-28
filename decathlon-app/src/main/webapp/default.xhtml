@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title>Decathlon App</title>
+</h:head>
+
+<h:body>
+    <div class="header">
+        <h:outputText value="Decathlon tournament table"
+        style="font-size: 200%; color: #ffffff; text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; margin-top:30px; margin-bottom:30px" />
+    </div>
+
+    <h:form id="form" style="margin-top:30px; margin-bottom:30px">
+        <p:dataTable var="element" value="#{bean.competitionResults}"
+            paginator="true" rows="10" rowsPerPageTemplate="5,10,15" 
+            paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
+            <p:column headerText="Place">
+                <h:outputText value="#{element.place}" />
+            </p:column>
+
+            <p:column headerText="Contestant">
+                <h:outputText value="#{element.partyDTO.partyName.displayName}" />
+                <p:rowToggler />
+            </p:column>
+    
+            <p:column headerText="Scores">
+                <h:outputText value="#{element.competitionResults}" />
+            </p:column>
+    
+            <p:rowExpansion>
+                <p:dataTable var="scores" value="#{element.partyDTO.scores}" tableStyle="width:auto">
+                    <p:column headerText="100 m">
+                        <h:outputText value="#{scores.shortRun}" />
+                    </p:column>
+
+                    <p:column headerText="Long Jump">
+                        <h:outputText value="#{scores.longJump}" />
+                    </p:column>
+
+                    <p:column headerText="Shot Put">
+                        <h:outputText value="#{scores.shotPut}" />
+                    </p:column>
+
+                    <p:column headerText="High Jump">
+                        <h:outputText value="#{scores.highJump}" />
+                    </p:column>
+
+                    <p:column headerText="400 m">
+                        <h:outputText value="#{scores.middleRun}" />
+                    </p:column>
+
+                    <p:column headerText="110 m Hurdles">
+                        <h:outputText value="#{scores.shortRunHurdles}" />
+                    </p:column>
+
+                    <p:column headerText="Discus Trow">
+                        <h:outputText value="#{scores.discusThrow}" />
+                    </p:column>
+
+                    <p:column headerText="Pole Vault">
+                        <h:outputText value="#{scores.poleVault}" />
+                    </p:column>
+
+                    <p:column headerText="Javelin Throw">
+                        <h:outputText value="#{scores.javelinThrow}" />
+                    </p:column>
+
+                    <p:column headerText="1'500 m">
+                        <h:outputText value="#{scores.longRun}" />
+                    </p:column>
+                </p:dataTable>
+            </p:rowExpansion>
+        </p:dataTable>
+    </h:form>
+</h:body>
+
+</html>
